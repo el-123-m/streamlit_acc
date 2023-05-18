@@ -24,26 +24,28 @@ def intro():
     st.markdown(
         """
 
-        Burası Benim Sayfam Olacak 
+        Web application designed to help you evaluate your acceleration files in an impressive manner. We offer a powerful and user-friendly solution to meet your signal analysis needs. Our goal is to analyze your acceleration data and provide you with valuable insights to enhance your decision-making process.
 
-        Streamlit is an open-source app framework built specifically for
-        Machine Learning and Data Science projects.
+        Key Features:
 
-        **👈 Select a demo from the dropdown on the left** to see some examples
-        of what Streamlit can do!
+        FFT Displacement Calculation: We analyze your acceleration files using Fourier Transform (FFT), allowing you to determine displacement values in the frequency spectrum. This feature is highly beneficial for structural integrity, vibration analysis, and other applications.
+
+        Damping Ratio Calculation: We utilize a specialized algorithm to calculate the damping ratio of vibrations in your acceleration data. This information is crucial for understanding energy loss in vibrations and how the vibration motion slows down within the system.
+
+        Excel Output: We provide output in Excel format, enabling you to easily share your analysis results. You can integrate your data with other tools or share your analysis results with others effortlessly.
+
+        User-Friendly Interface: Our web application offers a user-friendly interface that allows you to easily upload your acceleration files, adjust analysis parameters, and quickly visualize the results. While the analysis process involves complex mathematical calculations, it is handled in the background, and the results are presented in a clear and understandable manner.
+
+        Security and Data Privacy: We prioritize data security and privacy. All your uploaded acceleration files and analysis results are stored on our secure servers, protected by advanced security measures. We have taken necessary precautions to ensure that your data is not shared with third parties or misused.
+
+        Web provides valuable insights in various areas, from structural integrity analysis to vibration issues. It is an ideal solution for industrial sectors, structural engineering firms, and researchers.
 
         ### Want to learn more?
 
-        - Check out [streamlit.io](https://streamlit.io)
-        - Jump into our [documentation](https://docs.streamlit.io)
-        - Ask a question in our [community
-          forums](https://discuss.streamlit.io)
+        - Github [GitHub](https://github.com/afugur)
+        - Medium [Medium](https://docs.streamlit.io)
+        - Linkedin  [Linkedin](https://www.linkedin.com/in/ahmet-furkan-u%C4%9Fur-730236205)
 
-        ### See more complex demos
-
-        - Use a neural net to [analyze the Udacity Self-driving Car Image
-          Dataset](https://github.com/streamlit/demo-self-driving)
-        - Explore a [New York City rideshare dataset](https://github.com/streamlit/demo-uber-nyc-pickups)
     """
     )
 
