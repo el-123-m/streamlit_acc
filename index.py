@@ -43,7 +43,7 @@ def intro():
         ### Want to learn more?
 
         - Github [GitHub](https://github.com/afugur)
-        - Medium [Medium](https://docs.streamlit.io)
+        - Medium [Medium](https://medium.com/@afurkanugur05/creating-a-local-web-dashboard-for-a-monitored-building-de313ca67e51)
         - Linkedin  [Linkedin](https://www.linkedin.com/in/ahmet-furkan-u%C4%9Fur-730236205)
 
     """
