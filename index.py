@@ -114,7 +114,7 @@ class AccProcessing:
         if format == "txt":
         
             data = pd.DataFrame(columns=["Time", "Acc"])
-            with open(file_path, "r") as file:
+            with open(path, "r") as file:
                 lines = file.readlines()
                 for line in lines[1:]:
                     time, acc = line.strip().split()
