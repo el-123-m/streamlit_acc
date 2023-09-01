@@ -112,7 +112,7 @@ class AccProcessing:
     def readData(self, path, sample_rate, count,format):
         
         if format == "txt":
-            st.write("txtye girdim")
+
             data = []
             st.write(data)
             st.write(path)
