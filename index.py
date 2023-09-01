@@ -110,25 +110,12 @@ class AccProcessing:
         self.data = pd.DataFrame()
 
     def readData(self, path, sample_rate, count,format):
-        
         if format == "txt":
-
-            data = []
-            st.write(data)
-            st.write(path)
-            with open(path, "r") as file:
-                lines = file.readlines()
-                
-                for line in lines[1:]:
-                    time, acc = line.strip().split()
-                    data.append({"Time": float(time), "Acc": float(acc)})
-            
-            data_df = pd.concat([pd.DataFrame(row, index=[0]) for row in data], ignore_index=True)
-            st.write(data_df)
+            data = np.loadtxt(file_path, skiprows=1)
+            data_df = pd.DataFrame(data, columns=["Time", "Acc"])
             self.data_df["Time"] = data_df["Time"]
             self.data_df["Acc"] = data_df["Acc"]
             
-                    
         else:
                 
             st = obspy.read(path)
