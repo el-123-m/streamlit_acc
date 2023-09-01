@@ -112,9 +112,10 @@ class AccProcessing:
     def readData(self, path, sample_rate, count,format):
         
         if format == "txt":
-
+            st.write("txtye girdim")
             data = []
-            
+            st.write(data)
+            st.write(path)
             with open(path, "r") as file:
                 lines = file.readlines()
                 
@@ -123,6 +124,7 @@ class AccProcessing:
                     data.append({"Time": float(time), "Acc": float(acc)})
             
             data_df = pd.concat([pd.DataFrame(row, index=[0]) for row in data], ignore_index=True)
+            st.write(data_df)
             self.data_df["Time"] = data_df["Time"]
             self.data_df["Acc"] = data_df["Acc"]
             
