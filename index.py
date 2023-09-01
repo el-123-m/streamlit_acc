@@ -109,15 +109,27 @@ class AccProcessing:
 
         self.data = pd.DataFrame()
 
-    def readData(self, path, sample_rate, count):
-        st = obspy.read(path)
-        tr = st[0]
-        
-        data = tr.data / (9.81 * count)  # count to g
-        data = data - np.mean(data)
+    def readData(self, path, sample_rate, count,format):
 
-        self.data["Time"] = tr.times()
-        self.data["Acc"] = data
+        if format == "txt":
+        
+            data = pd.DataFrame(columns=["Time", "Acc"])
+            with open(file_path, "r") as file:
+                lines = file.readlines()
+                for line in lines[1:]:
+                    time, acc = line.strip().split()
+                    data = data.append({"Time": float(time), "Acc": float(acc)}, ignore_index=True)
+                    
+        else:
+                
+            st = obspy.read(path)
+            tr = st[0]
+            
+            data = tr.data / (9.81 * count)  # count to g
+            data = data - np.mean(data)
+    
+            self.data["Time"] = tr.times()
+            self.data["Acc"] = data
 
     def convertDisplacement(self):
 
@@ -194,7 +206,8 @@ def mainPage():
     with col2:
         count = st.number_input("Count", value=318976, step=1)
 
-    uploaded_file = st.file_uploader("Upload a file (.gcf, .mseed, etc.)")
+    uploaded_file = st.file_uploader("Upload a file (.gcf, .mseed, .txt, etc.)")
+    file_format = None
 
     read_clicked = st.button("Start Read")
 
@@ -202,6 +215,17 @@ def mainPage():
     st.subheader("Acceleration - Time")
 
     if uploaded_file is not None:
+        file_name, file_extension = os.path.splitext(uploaded_file.name)
+        file_extension = file_extension.lower()
+    
+        if file_extension == ".txt":
+            file_format = "txt"
+        elif file_extension == ".gcf":
+            file_format = "gcf"
+        elif file_extension == ".mseed":
+            file_format = "mseed"
+        else:
+            st.warning("Unsupported file format. Supported formats: .txt, .gcf, .mseed")
 
 
         global acc_stuff,acc_graph_data
