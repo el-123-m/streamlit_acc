@@ -123,6 +123,9 @@ class AccProcessing:
                     data.append({"Time": float(time), "Acc": float(acc)})
             
             data_df = pd.concat([pd.DataFrame(row, index=[0]) for row in data], ignore_index=True)
+            self.data_df["Time"] = data_df["Time"]
+            self.data_df["Acc"] = data_df["Acc"]
+            
                     
         else:
                 
