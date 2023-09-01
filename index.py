@@ -230,7 +230,7 @@ def mainPage():
 
         global acc_stuff,acc_graph_data
         acc_stuff = AccProcessing()
-        acc_stuff.readData(uploaded_file, sample_rate, count)
+        acc_stuff.readData(uploaded_file, sample_rate, count,file_format)
         data = acc_stuff.returnAccData()
 
         create_graph(data,"Time","Acc")
