@@ -112,7 +112,7 @@ class AccProcessing:
     def readData(self, path, sample_rate, count,format):
         if format == "txt":
             data = np.loadtxt(path, skiprows=1)
-            self.data_df = pd.DataFrame(data, columns=["Time", "Acc"])
+            self.data = pd.DataFrame(data, columns=["Time", "Acc"])
 
         else:
                 
@@ -227,7 +227,7 @@ def mainPage():
         st.write("Debug2:", uploaded_file)
         acc_stuff.readData(uploaded_file, sample_rate, count,file_format)
         data = acc_stuff.returnAccData()
-
+        
         create_graph(data,"Time","Acc")
 
         acc_graph_data = data.copy()
