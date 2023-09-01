@@ -112,7 +112,7 @@ class AccProcessing:
     def readData(self, path, sample_rate, count,format):
         
         if format == "txt":
-            
+            st.log("Txtyi gördüm")
             data = []
             
             with open(path, "r") as file:
@@ -224,7 +224,7 @@ def mainPage():
     if uploaded_file is not None:
         file_name, file_extension = os.path.splitext(uploaded_file.name)
         file_extension = file_extension.lower()
-    
+        st.log(file_extension)
         if file_extension == ".txt":
             file_format = "txt"
         elif file_extension == ".gcf":
@@ -237,6 +237,7 @@ def mainPage():
 
         global acc_stuff,acc_graph_data
         acc_stuff = AccProcessing()
+        st.log(uploaded_file, sample_rate, count,file_format)
         acc_stuff.readData(uploaded_file, sample_rate, count,file_format)
         data = acc_stuff.returnAccData()
 
