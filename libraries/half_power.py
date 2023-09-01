@@ -37,7 +37,7 @@ def dampHalf(data,mods,fs=200,samples=1024,overlap=0.33):
     for narrow in range(len(mods)):
         
         for a in range(len(columns)):
-            f = butter_bandpass_filter(data[columns[a]], mods[narrow] - 0.2, mods[narrow] + 0.2,fs=fs)
+            f = butter_bandpass_filter(data[columns[a]], mods[narrow] - 0.1, mods[narrow] + 0.1,fs=fs)
             f_Data["channel {0} - mod {1}".format(a,narrow+1)] = f
             
         

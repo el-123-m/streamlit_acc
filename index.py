@@ -112,7 +112,7 @@ class AccProcessing:
     def readData(self, path, sample_rate, count,format):
         if format == "txt":
             data = np.loadtxt(path, skiprows=1)
-            self.data = pd.DataFrame(data, columns=["Time", "Acc"])
+            self.data = pd.DataFrame(data*0.101972, columns=["Time", "Acc"])
 
         else:
                 

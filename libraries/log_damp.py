@@ -47,7 +47,7 @@ def dampLog(data,mods,fs=200,samples=1024,overlap=0.33,length=500):
     log_list = []
     for narrow in range(len(mods)):
         for a in range(len(columns)):
-            f = filter_function.butter_bandpass_filter(data[columns[a]], mods[narrow] - 0.2, mods[narrow] + 0.2,fs=fs)
+            f = filter_function.butter_bandpass_filter(data[columns[a]], mods[narrow] - 0.1, mods[narrow] + 0.1,fs=fs)
             f_Data["channel {0} - mod {1}".format(a,narrow+1)] = f
 
             read = intf(f_Data["channel {0} - mod {1}".format(a,narrow+1)],
