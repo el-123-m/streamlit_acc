@@ -112,10 +112,8 @@ class AccProcessing:
     def readData(self, path, sample_rate, count,format):
         if format == "txt":
             data = np.loadtxt(path, skiprows=1)
-            data_df = pd.DataFrame(data, columns=["Time", "Acc"])
-            self.data_df["Time"] = data_df["Time"]
-            self.data_df["Acc"] = data_df["Acc"]
-            
+            self.data_df = pd.DataFrame(data, columns=["Time", "Acc"])
+
         else:
                 
             st = obspy.read(path)
